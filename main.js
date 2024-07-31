@@ -1,14 +1,14 @@
-const numeroSenha = document.querySelectorAll('.parametro-senha__texto');
+const numeroSenha = document.querySelector('.parametro-senha__texto');
 let tamanhoSenha = 12;
 numeroSenha.textContent = tamanhoSenha;
 const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
 const letrasMinusculas = 'abcdefghijklmnopqrstuvxywz';
 const numeros = '0123456789';
-const simbolas = '!@%*?';
+const simbolos = '!@%*?';
 const botoes = document.querySelectorAll('.parametro-senha__botao');
-const campoSenha = document.querySelectorAll('.#campo-senha');
+const campoSenha = document.querySelector('#campo-senha');
 const checkbox = document.querySelectorAll('.checkbox');
-const forcaSenha = document.querySelectorAll('.forca');
+const forcaSenha = document.querySelector('.forca');
 
 botoes[0].onclick = diminuiTamanho;
 botoes[1].onclick = aumentaTamanho;
@@ -22,7 +22,7 @@ function diminuiTamanho() {
     geraSenha();
 }
 function aumentaTamanho() {
-    if(tamanhoSenha < 20) {
+    if (tamanhoSenha < 20) {
         // tamanhoSenha = tamanhoSenha+1;
         tamanhoSenha++;
     }
@@ -30,7 +30,7 @@ function aumentaTamanho() {
     geraSenha();
 }
 
-for (i= 0; i< checkbox.length; i++) {
+for (i = 0; i < checkbox.length; i++) {
     checkbox[i].onclick = geraSenha;
 }
 
@@ -48,10 +48,10 @@ function geraSenha() {
         alfabeto = alfabeto + numeros;
     }
     if (checkbox[3].checked) {
-        alfabeto = alfabeto + simbolas;
+        alfabeto = alfabeto + simbolos;
     }
     let senha = '';
-    for (let i = 0; i< tamanhoSenha; i++) {
+    for (let i = 0; i < tamanhoSenha; i++) {
         let numeroAleatorio = Math.random() * alfabeto.length;
         numeroAleatorio = Math.floor(numeroAleatorio);
         senha = senha + alfabeto[numeroAleatorio];
@@ -73,5 +73,11 @@ function classificaSenha(tamanhoAlfabeto){
         forcaSenha.classList.add('fraca');
     }
     const valorEntropia = document.querySelector('.entropia');
-    valorEntropia.textContent = "um computador pode lebar até " + Math.floor(2**entropia/(100e6*60*60*24)) + " dias para descobrir essa senha.";
+    valorEntropia.textContent = "Um computador pode levar até " + Math.floor(2**entropia/(100e6*60*60*24)) + " dias para descobrir essa senha.";
 }
+
+
+
+
+
+
